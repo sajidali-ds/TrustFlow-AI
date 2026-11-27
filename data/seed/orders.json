@@ -1,0 +1,193 @@
+{
+  "ORD-5001": {
+    "order_id": "ORD-5001",
+    "customer_id": "CUST-1001",
+    "sku": "SKU-KETTLE-STEEL-1L",
+    "item_name": "Stainless Steel Electric Kettle 1L",
+    "quantity": 1,
+    "unit_price": 39.99,
+    "order_date": "2026-11-05",
+    "delivered_date": "2026-11-10",
+    "status": "delivered"
+  },
+  "ORD-5002": {
+    "order_id": "ORD-5002",
+    "customer_id": "CUST-1002",
+    "sku": "SKU-HEADPHONE-BT-X2",
+    "item_name": "Wireless Bluetooth Headphones X2",
+    "quantity": 1,
+    "unit_price": 89.5,
+    "order_date": "2026-11-07",
+    "delivered_date": "2026-11-12",
+    "status": "delivered"
+  },
+  "ORD-5003": {
+    "order_id": "ORD-5003",
+    "customer_id": "CUST-1003",
+    "sku": "SKU-BLENDER-PRO-700",
+    "item_name": "Pro Blender 700W",
+    "quantity": 1,
+    "unit_price": 64.0,
+    "order_date": "2026-09-15",
+    "delivered_date": "2026-09-20",
+    "status": "delivered"
+  },
+  "ORD-5004": {
+    "order_id": "ORD-5004",
+    "customer_id": "CUST-1002",
+    "sku": "SKU-MONITOR-27-4K",
+    "item_name": "27-inch 4K Monitor",
+    "quantity": 1,
+    "unit_price": 249.99,
+    "order_date": "2026-11-08",
+    "delivered_date": "2026-11-13",
+    "status": "delivered"
+  },
+  "ORD-5005": {
+    "order_id": "ORD-5005",
+    "customer_id": "CUST-1004",
+    "sku": "SKU-SPEAKER-MINI",
+    "item_name": "Mini Bluetooth Speaker",
+    "quantity": 1,
+    "unit_price": 59.0,
+    "order_date": "2026-11-10",
+    "delivered_date": "2026-11-15",
+    "status": "delivered"
+  },
+  "ORD-5006": {
+    "order_id": "ORD-5006",
+    "customer_id": "CUST-1002",
+    "sku": "SKU-AIRFRYER-5L",
+    "item_name": "Air Fryer 5L",
+    "quantity": 1,
+    "unit_price": 119.0,
+    "order_date": "2026-11-09",
+    "delivered_date": "2026-11-14",
+    "status": "delivered"
+  },
+  "ORD-5007": {
+    "order_id": "ORD-5007",
+    "customer_id": "CUST-1002",
+    "sku": "SKU-USB-HUB-7",
+    "item_name": "USB-C Hub 7-in-1",
+    "quantity": 1,
+    "unit_price": 24.99,
+    "order_date": "2026-11-11",
+    "delivered_date": "2026-11-16",
+    "status": "delivered"
+  },
+  "ORD-5008": {
+    "order_id": "ORD-5008",
+    "customer_id": "CUST-1002",
+    "sku": "SKU-BLENDER-PRO-700",
+    "item_name": "Pro Blender 700W",
+    "quantity": 1,
+    "unit_price": 64.0,
+    "order_date": "2026-09-30",
+    "delivered_date": "2026-10-05",
+    "status": "delivered"
+  },
+  "ORD-5009": {
+    "order_id": "ORD-5009",
+    "customer_id": "CUST-1003",
+    "sku": "SKU-HEADPHONE-BT-X2",
+    "item_name": "Wireless Bluetooth Headphones X2",
+    "quantity": 1,
+    "unit_price": 89.5,
+    "order_date": "2026-09-20",
+    "delivered_date": "2026-09-25",
+    "status": "delivered"
+  },
+  "ORD-5010": {
+    "order_id": "ORD-5010",
+    "customer_id": "CUST-1005",
+    "sku": "SKU-KETTLE-STEEL-1L",
+    "item_name": "Stainless Steel Electric Kettle 1L",
+    "quantity": 1,
+    "unit_price": 39.99,
+    "order_date": "2026-11-12",
+    "delivered_date": "2026-11-17",
+    "status": "delivered"
+  },
+  "ORD-5011": {
+    "order_id": "ORD-5011",
+    "customer_id": "CUST-1004",
+    "sku": "SKU-HEADPHONE-BT-X2",
+    "item_name": "Wireless Bluetooth Headphones X2",
+    "quantity": 1,
+    "unit_price": 89.5,
+    "order_date": "2026-11-19",
+    "delivered_date": "",
+    "status": "processing"
+  },
+  "ORD-5012": {
+    "order_id": "ORD-5012",
+    "customer_id": "CUST-1003",
+    "sku": "SKU-SPEAKER-MINI",
+    "item_name": "Mini Bluetooth Speaker",
+    "quantity": 1,
+    "unit_price": 59.0,
+    "order_date": "2026-11-16",
+    "delivered_date": "",
+    "status": "shipped"
+  },
+  "ORD-5013": {
+    "order_id": "ORD-5013",
+    "customer_id": "CUST-1001",
+    "sku": "SKU-HEADPHONE-BT-X2",
+    "item_name": "Wireless Bluetooth Headphones X2",
+    "quantity": 1,
+    "unit_price": 89.5,
+    "order_date": "2026-11-08",
+    "delivered_date": "2026-11-13",
+    "status": "delivered"
+  },
+  "ORD-5014": {
+    "order_id": "ORD-5014",
+    "customer_id": "CUST-1005",
+    "sku": "SKU-KETTLE-STEEL-1L",
+    "item_name": "Stainless Steel Electric Kettle 1L",
+    "quantity": 1,
+    "unit_price": 39.99,
+    "order_date": "2026-11-02",
+    "delivered_date": "2026-11-07",
+    "status": "refunded",
+    "refund_issued": true,
+    "refund_amount": 39.99,
+    "refund_reason": "seeded: previously resolved case",
+    "refund_txn": "RFND-SEED0001"
+  },
+  "ORD-5015": {
+    "order_id": "ORD-5015",
+    "customer_id": "CUST-1001",
+    "sku": "SKU-USB-HUB-7",
+    "item_name": "USB-C Hub 7-in-1",
+    "quantity": 1,
+    "unit_price": 24.99,
+    "order_date": "2026-11-11",
+    "delivered_date": "2026-11-16",
+    "status": "delivered"
+  },
+  "ORD-5016": {
+    "order_id": "ORD-5016",
+    "customer_id": "CUST-1004",
+    "sku": "SKU-HEADPHONE-BT-X2",
+    "item_name": "Wireless Bluetooth Headphones X2",
+    "quantity": 1,
+    "unit_price": 89.5,
+    "order_date": "2026-11-09",
+    "delivered_date": "2026-11-14",
+    "status": "delivered"
+  },
+  "ORD-5017": {
+    "order_id": "ORD-5017",
+    "customer_id": "CUST-1003",
+    "sku": "SKU-BLENDER-PRO-700",
+    "item_name": "Pro Blender 700W",
+    "quantity": 1,
+    "unit_price": 64.0,
+    "order_date": "2026-11-10",
+    "delivered_date": "2026-11-15",
+    "status": "delivered"
+  }
+}

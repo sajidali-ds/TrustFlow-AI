@@ -1,0 +1,60 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Resolution Agent: policy-guarded</title>
+<style>
+:root{--bg:#fff;--fg:#1a1a1a;--mut:#666;--card:#f6f6f4;--bd:#ddd;--ok:#1b7a3e;--bad:#b3261e;--warn:#9a6700;--acc:#2b5fd9}
+@media(prefers-color-scheme:dark){:root{--bg:#161616;--fg:#eee;--mut:#9a9a9a;--card:#222;--bd:#3a3a3a;--ok:#5fd28a;--bad:#ff8a80;--warn:#e3b341;--acc:#7da2ff}}
+body{margin:0;font:15px/1.5 system-ui,sans-serif;background:var(--bg);color:var(--fg)}
+main{max-width:960px;margin:0 auto;padding:20px}
+h1{font-size:20px;margin:0 0 4px}p.sub{color:var(--mut);margin:0 0 16px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}@media(max-width:760px){.grid{grid-template-columns:1fr}}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:10px;padding:14px}
+label{display:block;font-size:12px;color:var(--mut);margin:8px 0 2px}
+input,select,textarea,button{width:100%;box-sizing:border-box;padding:8px;border:1px solid var(--bd);border-radius:6px;background:var(--bg);color:var(--fg);font:inherit}
+button{background:var(--acc);color:#fff;border:0;cursor:pointer;margin-top:12px;font-weight:600}
+.row{display:flex;gap:8px;align-items:center}.row input[type=checkbox]{width:auto}
+.ev{border-left:3px solid var(--bd);padding:3px 0 3px 10px;margin:4px 0;font-size:13px}
+.ev b{font-family:ui-monospace,monospace;font-size:12px;color:var(--mut)}
+.ev.rej{border-color:var(--bad)}.ev.ok{border-color:var(--ok)}.ev.warn{border-color:var(--warn)}
+.pill{display:inline-block;padding:2px 10px;border-radius:99px;font-weight:700;font-size:12px}
+.resolved,.already_resolved{background:var(--ok);color:#fff}.escalated{background:var(--bad);color:#fff}.needs_clarification{background:var(--warn);color:#fff}
+.reply{background:var(--bg);border:1px solid var(--bd);border-radius:8px;padding:10px;margin-top:8px}
+pre{white-space:pre-wrap;font-size:12px;margin:6px 0 0}
+</style></head><body><main>
+<h1>Customer Resolution Agent</h1>
+<p class="sub">The model proposes, a policy engine decides. Pick a scenario, then try switching the guardrail off.</p>
+<div class="grid">
+ <div class="card">
+  <label>Scenario</label><select id="sc"></select>
+  <label>Customer ID</label><input id="cust">
+  <label>Order ID</label><input id="ord">
+  <label>Customer message (untrusted input)</label><textarea id="msg" rows="4"></textarea>
+  <label>Proposer</label>
+  <select id="prop"><option value="auto">auto (rules, or LLM if key set)</option><option value="rules">rules</option><option value="naive">naive (simulated gullible model)</option></select>
+  <label>Inject a system fault</label>
+  <select id="chaos"><option value="">none</option><option>stock_race</option><option>timeout_after_commit</option><option>silent_failure</option></select>
+  <div class="row" style="margin-top:10px"><input type="checkbox" id="guard" checked><span>Guardrail ON (uncheck to see what goes wrong)</span></div>
+  <button id="run">Resolve case</button>
+ </div>
+ <div class="card" id="out"><span style="color:var(--mut)">Result appears here.</span></div>
+</div>
+</main>
+<script>
+const $=id=>document.getElementById(id);let SC=[];
+const esc=t=>String(t).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+fetch('/api/scenarios').then(r=>r.json()).then(d=>{SC=d;$('sc').innerHTML=d.map((s,i)=>`<option value="${i}">${esc(s.case_id)}: ${esc(s.note.slice(0,60))}</option>`).join('');fill(0)});
+function fill(i){const s=SC[i];$('cust').value=s.customer_id;$('ord').value=s.order_id;$('msg').value=s.customer_message;
+ $('prop').value=s.proposer||'auto';$('chaos').value=(s.chaos||[])[0]||'';$('guard').checked=true}
+$('sc').onchange=e=>fill(e.target.value);
+function cls(e){const m=e.msg;if(e.node==='guard'&&m.includes('REJECTED'))return'rej';if(e.node==='guard'&&m.includes('APPROVED'))return'ok';
+ if(e.node==='verify'&&m.startsWith('PASSED'))return'ok';if(/BLOCKED|FAILED|transient|DISABLED|INJECTION/.test(m))return'warn';return''}
+$('run').onclick=async()=>{
+ $('out').innerHTML='Running...';
+ const body={customer_id:$('cust').value,order_id:$('ord').value,message:$('msg').value,proposer:$('prop').value,guardrail:$('guard').checked,chaos:$('chaos').value?[$('chaos').value]:[]};
+ const r=await fetch('/api/resolve',{method:'POST',body:JSON.stringify(body)});const s=await r.json();
+ if(s.error){$('out').textContent=s.error;return}
+ let h=`<span class="pill ${s.outcome}">${esc(s.outcome.toUpperCase())}${s.final_action?' via '+esc(s.final_action):''}</span> <span style="color:var(--mut)">${s.elapsed_ms} ms</span>`;
+ h+=s.events.map(e=>`<div class="ev ${cls(e)}"><b>${esc(e.node)}</b> ${esc(e.msg)}</div>`).join('');
+ h+=`<div class="reply"><b>Reply to customer</b><br>${esc(s.customer_reply)}</div>`;
+ if(s.escalation)h+=`<div class="reply"><b>Handoff brief (${esc(s.escalation.priority)} priority)</b><pre>${esc(JSON.stringify(s.escalation,null,2))}</pre></div>`;
+ $('out').innerHTML=h};
+</script></body></html>

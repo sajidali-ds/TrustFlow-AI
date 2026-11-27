@@ -1,0 +1,9 @@
+{
+  "SKU-KETTLE-STEEL-1L": {"sku": "SKU-KETTLE-STEEL-1L", "on_hand": 0, "restock_eta_days": 21},
+  "SKU-HEADPHONE-BT-X2": {"sku": "SKU-HEADPHONE-BT-X2", "on_hand": 14, "restock_eta_days": 0},
+  "SKU-BLENDER-PRO-700": {"sku": "SKU-BLENDER-PRO-700", "on_hand": 3, "restock_eta_days": 0},
+  "SKU-MONITOR-27-4K": {"sku": "SKU-MONITOR-27-4K", "on_hand": 5, "restock_eta_days": 0},
+  "SKU-SPEAKER-MINI": {"sku": "SKU-SPEAKER-MINI", "on_hand": 1, "restock_eta_days": 10},
+  "SKU-USB-HUB-7": {"sku": "SKU-USB-HUB-7", "on_hand": 40, "restock_eta_days": 0},
+  "SKU-AIRFRYER-5L": {"sku": "SKU-AIRFRYER-5L", "on_hand": 0, "restock_eta_days": 7}
+}

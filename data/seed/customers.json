@@ -1,0 +1,7 @@
+{
+  "CUST-1001": {"customer_id": "CUST-1001", "name": "Maria Alvarez", "email": "maria.alvarez@example.com", "loyalty_tier": "gold", "account_created": "2021-03-14", "past_refunds_last_90_days": 1},
+  "CUST-1002": {"customer_id": "CUST-1002", "name": "James Okafor", "email": "james.okafor@example.com", "loyalty_tier": "standard", "account_created": "2024-11-02", "past_refunds_last_90_days": 4},
+  "CUST-1003": {"customer_id": "CUST-1003", "name": "Priya Nair", "email": "priya.nair@example.com", "loyalty_tier": "standard", "account_created": "2023-07-19", "past_refunds_last_90_days": 0},
+  "CUST-1004": {"customer_id": "CUST-1004", "name": "Arjun Mehta", "email": "arjun.mehta@example.com", "loyalty_tier": "standard", "account_created": "2025-02-08", "past_refunds_last_90_days": 2},
+  "CUST-1005": {"customer_id": "CUST-1005", "name": "Lena Fischer", "email": "lena.fischer@example.com", "loyalty_tier": "gold", "account_created": "2020-01-30", "past_refunds_last_90_days": 5}
+}
